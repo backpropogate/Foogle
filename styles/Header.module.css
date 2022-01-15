@@ -1,0 +1,117 @@
+.logo {
+    cursor: pointer;
+    
+
+}
+.logo:hover {
+    opacity: 0.4;
+}
+.header {
+    background-color:white;
+    color: black;
+    width: 100%;
+    height:5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3em 3em;
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+    position: fixed;
+    z-index: 3;
+    margin-bottom: 25px;
+}
+.leftNav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+}
+.nav ul {
+    font-weight: 600;
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.hamburger {
+    padding: 14px 14px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+.hamburger:hover {
+    background-color: rgb(218, 218, 218);
+}
+
+.visibleNav {
+    position: absolute;
+    left: 0;
+    width: 20em;
+    padding-top: 2em;
+    height: 100vh;
+    background-color: white;
+    top: 0;
+    box-shadow: 0 0 16px rgba(0,0,0,.20);
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-content: center;
+    animation: myAnim 1s ease 0s 1 normal forwards;
+   
+}
+@keyframes myAnim {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+.visibleNav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+   
+}
+.hiddenNav {
+    display: none;
+}
+.closeNav {
+    display: flex;
+    justify-content: right;
+    padding-right: 1em;
+    cursor: pointer;
+}
+.closeNav:hover{
+    opacity: 0.6;
+}
+.button {
+    background-color:#4285F4;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    color: white;
+    font-size: 1em;
+    margin-left: 1.09em;
+   
+}
+@media (min-width: 640px) {
+.button {
+    background-color:#4285F4;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    color: white;
+}
+}
+.button:hover {
+    background-color: transparent;
+    border: solid 1px #4285F4;
+    color: #4285F4;
+    cursor: pointer;
+}
