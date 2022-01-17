@@ -1,25 +1,48 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import styles from '../styles/Home.module.css'
-
+const axios = require('axios').default;
 export default function Home() {
+const [options, setOptions] = useState([])
+const [source, setSource] = useState("en")
+const [target, setTarget] = useState("en")
+const [input, setInput] = useState("")
+const [output, setOutput] = useState("")
   
+useEffect(() => {
+  axios.get('https://libretranslate.de/languages',
+  {headers:{'accept': 'application/json'}}).then(res=> {
+   
+    setOptions(res.data)
+  })
+},[])
+const translate = () => {
+  const params = new URLSearchParams();
+  params.append('q', input);
+  params.append('source', source);
+  params.append('target', target);
+  params.append('api_key', ' xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx');
+
+  axios.post('https://libretranslate.de/translate', params,{
+    headers:{
+    'accept': 'application/json',
+    'Content-Type': 'application/x-www-form-urlencoded',
+  },
+}).then(res=>{
+  
+  setOutput(res.data.translatedText)
+})
+};
 
 // Using state to keep track of what the selected fruit is
-let [source, setSource] = useState("Select language source")
-let [target, setTarget] = useState("Select a target language ")
+
 
 // Using this function to update the state of fruit
 // whenever a new option is selected from the dropdown
-let handleSourceChange = (e) => {
-  setSource(e.target.value)
-}
-let handleTargetChange = (e) => {
-  setTarget(e.target.value)
-}
+
 console.log(source)
   return (
    
@@ -37,48 +60,45 @@ console.log(source)
     <div id='translate' className={styles.selectContainer}>
       <div>
       
-    <select onChange={handleSourceChange}> 
+    <select onChange={e=> setSource(e.target.value)}> 
         {/* Creating the default / starting option for our 
           dropdown.
          */}
-      <option value="English"> English </option>
-      <option value="Spanish ">Spanish </option>
-      <option value="Mandirin">Mandirin </option>
+      {options.map(opt=> <option key={opt.code} value={opt.code}> {opt.name} </option> )}
      
     </select>
     </div>
-    <span className={styles.arrow}><svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M21 9L17 5V8H10V10H17V13L21 9ZM7 11L3 15L7 19V16H14V14H7V11Z" fill="#4285F4"/>
-</svg>
-
-</span>
+    
     <div>
   
     
-    <select onChange={handleTargetChange}> 
+    <select onChange={e=> setTarget(e.target.value)}> 
     
         {/* Creating the default / starting option for our 
           dropdown.
          */}
-      <option value="English"> English </option>
-      <option value="Spanish ">Spanish </option>
-      <option value="Mandirin">Mandirin </option>
+     
+     {options.map(opt=> <option key={opt.code} value={opt.code}> {opt.name} </option> )}
      
     </select>
     </div>
    
     </div>
     <div className={styles.texttranslate}>
+    
     <div className={styles.input}>
+   
       
-      <input type="textarea" placeholder='Enter Your Text' />
+      <input type="textarea" placeholder='Enter Your Text' onInput={(e) =>setInput(e.target.value)}/>
       
     </div>
-    <div className={styles.output} >
+    <button className={styles.translateButton} onClick={e=>translate()}>Translate</button>
+    <div className={styles.output} value={output}  >
      
-      <p>lorem ipsum random text</p>
+      <p>{output}</p>
     
     </div>
+   
     </div>
     
     </div>

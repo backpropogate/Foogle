@@ -121,6 +121,19 @@ width: 38px;
   border: none;
   text-align: center;
 }
+.translateButton {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 1em 2em;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.translateButton:hover {
+  background-color: white;
+  color: #4285F4;
+}
 
 .output {
  text-align: center;
