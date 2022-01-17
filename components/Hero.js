@@ -5,14 +5,15 @@ const Hero = () => {
     return (
         <div className={styles.main}>
             <div>
-                <h1>Foogle <span className={styles.invis}>Translate</span></h1>
-                <p>Like google translate but not as good.<br></br>
-                This Site is not affiliated with Google.
+                <h3 className={styles.notaffiliated}>NOT AFFILIATED WITH GOOGLE</h3>
+                <h1> <span className={styles.invis}>Translate </span> the world</h1>
+                <p>Translate to over 20 different languages<br></br>
+                scroll down to get started.
                 </p>
                 
             </div>
             <div className={styles.heroImage}>
-                <Image src='/Hero.SVG' width='300px' height='300px' />
+                <Image src='/Hero.SVG' width='250px' height='250px' />
             </div>
         </div>
     )

@@ -37,11 +37,7 @@ const translate = () => {
 })
 };
 
-// Using state to keep track of what the selected fruit is
 
-
-// Using this function to update the state of fruit
-// whenever a new option is selected from the dropdown
 
 console.log(source)
   return (
@@ -49,21 +45,12 @@ console.log(source)
     <div className="App">
       <Header />
        <Hero/>
-    {/* Displaying the value of fruit */}
    
-   
-
-    {/* Creating our dropdown and passing it the handleFruitChange 
-      so that every time a new choice is selected, our fruit state 
-      updates and renders an emoji of the fruit.
-    */}
     <div id='translate' className={styles.selectContainer}>
       <div>
       
     <select onChange={e=> setSource(e.target.value)}> 
-        {/* Creating the default / starting option for our 
-          dropdown.
-         */}
+       
       {options.map(opt=> <option key={opt.code} value={opt.code}> {opt.name} </option> )}
      
     </select>
@@ -74,9 +61,7 @@ console.log(source)
     
     <select onChange={e=> setTarget(e.target.value)}> 
     
-        {/* Creating the default / starting option for our 
-          dropdown.
-         */}
+        
      
      {options.map(opt=> <option key={opt.code} value={opt.code}> {opt.name} </option> )}
      

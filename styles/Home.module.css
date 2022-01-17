@@ -1,5 +1,6 @@
 
 .selectContainer {
+  display: -webkit-flex;
  display: flex;
  justify-content: center;
  gap: 5%;
@@ -12,6 +13,7 @@
 }
 .selectContainer select {
   padding: 1em 2em;
+  display: -webkit-flex;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,6 +31,7 @@
 @media (min-width: 640px) { 
 .selectContainer select {
   padding: 2em 4em;
+  display: -webkit-flex;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,6 +59,7 @@
   width: 20px;
   color: #4285F4;
   font-weight: bold;
+  display: -webkit-flex;
   display: flex;
 
   justify-content: center;
@@ -66,6 +70,7 @@
 width: 38px;
   color: #4285F4;
   font-weight: bold;
+  display: -webkit-flex;
   display: flex;
 
   justify-content: center;
@@ -74,11 +79,13 @@ width: 38px;
 }
 
 .arrow {
+  display: -webkit-flex;
   display: flex;
   justify-content: center;
 }
 
  .texttranslate  {
+  display: -webkit-flex;
    display: flex;
    margin-top: 1em;
    flex-direction: column;
@@ -94,6 +101,7 @@ width: 38px;
   .texttranslate  {
    
     padding:6em 1em;
+    display: -webkit-flex;
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
@@ -137,6 +145,7 @@ width: 38px;
 
 .output {
  text-align: center;
+ display: -webkit-flex;
  display: flex;
  justify-content: center;
  align-items: center;
